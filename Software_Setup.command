@@ -63,6 +63,13 @@ else
 fi
 
 # --- 3. Zotero ---
+if [ ! -d "/Applications/Zotero.app" ]; then
+    echo -e "${yellow}📦 Installing Zotero...${reset}"
+    brew install --cask zotero
+else
+    echo -e "${green}✅ Zotero already installed.${reset}"
+fi
+
 if [ "$mode" == "1" ]; then
     if [ -d "$ZOTERO_SUPPORT_PATH" ]; then
         echo -e "${yellow}⚠️ Zotero config exists at $ZOTERO_SUPPORT_PATH. Skipping copy.${reset}"
@@ -75,14 +82,16 @@ if [ "$mode" == "1" ]; then
     fi
 fi
 
-if [ ! -d "/Applications/Zotero.app" ]; then
-    echo -e "${yellow}📦 Installing Zotero...${reset}"
-    brew install --cask zotero
-else
-    echo -e "${green}✅ Zotero already installed.${reset}"
-fi
+
 
 # --- 4. Obsidian ---
+if [ ! -d "/Applications/Obsidian.app" ]; then
+    echo -e "${yellow}📦 Installing Obsidian...${reset}"
+    brew install --cask obsidian
+else
+    echo -e "${green}✅ Obsidian already installed.${reset}"
+fi
+
 if [ "$mode" == "1" ]; then
     if [ -d "$DEST_VAULT" ]; then
         echo -e "${yellow}⚠️ Obsidian vault '${VAULT_NAME}' already exists. Skipping copy.${reset}"
@@ -96,12 +105,7 @@ if [ "$mode" == "1" ]; then
     fi
 fi
 
-if [ ! -d "/Applications/Obsidian.app" ]; then
-    echo -e "${yellow}📦 Installing Obsidian...${reset}"
-    brew install --cask obsidian
-else
-    echo -e "${green}✅ Obsidian already installed.${reset}"
-fi
+
 
 # --- 5. Zotero Plugin Instructions ---
 echo -e "\n📄 ${yellow}Manual Zotero Setup:${reset}"
