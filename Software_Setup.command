@@ -85,7 +85,7 @@ if [ "$mode" == "1" ]; then
         echo -e "${yellow}⚠️ Obsidian vault '${VAULT_NAME}' already exists. Skipping copy.${reset}"
     elif [ -d "$SOURCE_VAULT" ]; then
         echo -e "${yellow}📂 Copying Obsidian vault...${reset}"
-        mkdir -p "$(dirname \"$DEST_VAULT\")"
+        mkdir -p "$(dirname "$DEST_VAULT")"
         cp -R "$SOURCE_VAULT" "$DEST_VAULT"
         echo -e "${green}✅ Vault copied to: $DEST_VAULT${reset}"
     else
