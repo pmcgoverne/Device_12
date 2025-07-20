@@ -15,8 +15,8 @@ reset="\033[0m"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ZOTERO_SUPPORT_PATH="$HOME/Library/Application Support/Zotero"
 TEMPLATE_ZOTERO_PATH="$SCRIPT_DIR/Zotero"
-VAULT_NAME="TemplateVault"
-SOURCE_VAULT="$SCRIPT_DIR/TemplateVault"
+VAULT_NAME="Template"
+SOURCE_VAULT="$SCRIPT_DIR/Template"
 DEST_VAULT="$HOME/Documents/Obsidian Vaults/$VAULT_NAME"
 
 # --- Mode Selection ---
