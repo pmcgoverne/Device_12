@@ -10,10 +10,13 @@ yellow="\033[1;33m"
 red="\033[0;31m"
 reset="\033[0m"
 
+
+# Always resolve template paths relative to the script's location
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ZOTERO_SUPPORT_PATH="$HOME/Library/Application Support/Zotero"
-TEMPLATE_ZOTERO_PATH="./Zotero"
+TEMPLATE_ZOTERO_PATH="$SCRIPT_DIR/Zotero"
 VAULT_NAME="TemplateVault"
-SOURCE_VAULT="./TemplateVault"
+SOURCE_VAULT="$SCRIPT_DIR/TemplateVault"
 DEST_VAULT="$HOME/Documents/Obsidian Vaults/$VAULT_NAME"
 
 # --- Mode Selection ---
