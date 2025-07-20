@@ -1,0 +1,171 @@
+{
+  "settings_version": "0.23.0",
+  "debug": false,
+  "obsidian_command_palette_prefix": "Execute: ",
+  "preview_variables_in_command_palette": true,
+  "show_autocomplete_menu": true,
+  "working_directory": "",
+  "default_shells": {},
+  "environment_variable_path_augmentations": {},
+  "show_installation_warnings": true,
+  "error_message_duration": 20,
+  "notification_message_duration": 10,
+  "execution_notification_mode": "permanent",
+  "output_channel_clipboard_also_outputs_to_notification": true,
+  "output_channel_notification_decorates_output": true,
+  "enable_events": true,
+  "approve_modals_by_pressing_enter_key": true,
+  "command_palette": {
+    "re_execute_last_shell_command": {
+      "enabled": true,
+      "prefix": "Re-execute: "
+    }
+  },
+  "max_visible_lines_in_shell_command_fields": false,
+  "shell_commands": [
+    {
+      "id": "27q0rmq766",
+      "platform_specific_commands": {
+        "default": "bash \"00 - Assets/Scripts/export-pdf.sh\" {{file_path:relative}} {{_template_choice}} {{title}} {{_format}}"
+      },
+      "shells": {},
+      "alias": "",
+      "icon": null,
+      "confirm_execution": false,
+      "ignore_error_codes": [],
+      "input_contents": {
+        "stdin": null
+      },
+      "output_handlers": {
+        "stdout": {
+          "handler": "ignore",
+          "convert_ansi_code": true
+        },
+        "stderr": {
+          "handler": "notification",
+          "convert_ansi_code": true
+        }
+      },
+      "output_wrappers": {
+        "stdout": null,
+        "stderr": null
+      },
+      "output_channel_order": "stdout-first",
+      "output_handling_mode": "buffered",
+      "execution_notification_mode": null,
+      "events": {},
+      "debounce": null,
+      "command_palette_availability": "enabled",
+      "preactions": [
+        {
+          "type": "prompt",
+          "enabled": true,
+          "prompt_id": "cc0mq0imz8"
+        }
+      ],
+      "variable_default_values": {
+        "{{file_uri}}": {
+          "type": "show-errors",
+          "value": ""
+        },
+        "{{file_path}}": {
+          "type": "show-errors",
+          "value": ""
+        }
+      }
+    },
+    {
+      "id": "peh7qi0e48",
+      "platform_specific_commands": {
+        "default": "bash \"/Users/paulmcgovern/Library/Mobile Documents/iCloud~md~obsidian/Documents/Primary/00 - Assets/Scripts/test.sh\" \"{{filePath}}\"\n"
+      },
+      "shells": {},
+      "alias": "",
+      "icon": null,
+      "confirm_execution": false,
+      "ignore_error_codes": [],
+      "input_contents": {
+        "stdin": null
+      },
+      "output_handlers": {
+        "stdout": {
+          "handler": "ignore",
+          "convert_ansi_code": true
+        },
+        "stderr": {
+          "handler": "notification",
+          "convert_ansi_code": true
+        }
+      },
+      "output_wrappers": {
+        "stdout": null,
+        "stderr": null
+      },
+      "output_channel_order": "stdout-first",
+      "output_handling_mode": "buffered",
+      "execution_notification_mode": null,
+      "events": {},
+      "debounce": null,
+      "command_palette_availability": "enabled",
+      "preactions": [],
+      "variable_default_values": {}
+    }
+  ],
+  "prompts": [
+    {
+      "id": "cc0mq0imz8",
+      "title": "export-pdf",
+      "description": "",
+      "preview_shell_command": false,
+      "fields": [
+        {
+          "type": "single-choice",
+          "label": "Which template do you want to use?",
+          "description": "",
+          "default_value": "",
+          "target_variable_id": "j3csxsrqme",
+          "required": true,
+          "choices": [
+            "Abstract",
+            "Essay",
+            "Manuscript"
+          ]
+        },
+        {
+          "type": "single-choice",
+          "label": "Format?",
+          "description": "",
+          "default_value": "",
+          "target_variable_id": "pug3l0rpph",
+          "required": true,
+          "choices": [
+            "pdf",
+            "docx"
+          ]
+        }
+      ],
+      "execute_button_text": "Export"
+    }
+  ],
+  "builtin_variables": {},
+  "custom_variables": [
+    {
+      "id": "j3csxsrqme",
+      "name": "template_choice",
+      "description": "",
+      "default_value": null
+    },
+    {
+      "id": "pug3l0rpph",
+      "name": "format",
+      "description": "",
+      "default_value": null
+    }
+  ],
+  "custom_variables_notify_changes_via": {
+    "obsidian_uri": true,
+    "output_assignment": true
+  },
+  "custom_shells": [],
+  "output_wrappers": []
+}

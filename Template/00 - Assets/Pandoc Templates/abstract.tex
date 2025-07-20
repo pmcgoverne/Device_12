@@ -1,0 +1,90 @@
+% ------------------------------
+% NeurIPS‑style Pandoc template patched for CSL refs (v2)
+% ------------------------------
+\documentclass[12pt]{article}
+
+
+% ====================
+% Font and Spacing
+% ====================
+\usepackage{fontspec}
+\setmainfont{Georgia}
+\usepackage{setspace}
+\doublespacing
+
+% ====================
+% Page Layout
+% ====================
+\usepackage[margin=1in]{geometry}
+\setlength{\parindent}{1.5em}
+
+% ====================
+% Background Color
+% ====================
+\usepackage{xcolor}
+\definecolor{notebookcream}{RGB}{248,245,218}
+\usepackage{pagecolor}
+\pagecolor{notebookcream}
+\color{black}
+
+% ====================
+% Other Formatting
+% ====================
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+\usepackage{hyperref}
+
+% ====================
+% CSLReferences support for Pandoc citeproc
+% (full definition lifted & adapted from Pandoc’s default template)
+% ====================
+\newlength{\cslhangindent}
+\newlength{\csllabelwidth}
+
+% Environment that can swallow the \bibitem entries produced by Pandoc
+\newenvironment{CSLReferences}[2]{%
+  % #1 = hanging‑indent (in units of \cslhangindent)
+  % #2 = unlabeled‑indent (rarely used, kept for API parity)
+  \setlength{\parindent}{0pt}%
+  \setlength{\parskip}{0pt}%
+  \setlength{\cslhangindent}{1.5em}% default size for 1 unit
+  \setlength{\leftskip}{#1\cslhangindent}%
+  \setlength{\csllabelwidth}{#1\cslhangindent}%
+  \begin{list}{}{% create a list so \item is legal
+    \setlength{\leftmargin}{\csllabelwidth}%
+    \setlength{\labelwidth}{\csllabelwidth}%
+    \setlength{\labelsep}{0pt}%
+    \setlength{\itemindent}{-\leftmargin}%
+    \setlength{\parsep}{0pt}%
+    \setlength{\itemsep}{0pt}%
+  }%
+}{\end{list}\par}
+
+% Macros that Pandoc may emit when formatting CSL references
+\newcommand{\CSLBlock}[1]{#1\\}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\dimexpr\linewidth-\csllabelwidth}{#1}}
+\newcommand{\CSLIndent}[1]{\hspace{\csllabelwidth}#1}
+% fallback definitions for citeproc labels/text (required to avoid undefined‑control‑sequence)
+\providecommand{\citeprocitemlabel}[1]{#1}
+\providecommand{\citeproctext}{}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+% ====================
+% Body
+% ====================
+\begin{document}
+
+$body$
+
+\end{document}

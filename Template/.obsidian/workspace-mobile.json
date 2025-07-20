@@ -1,0 +1,757 @@
+{
+  "main": {
+    "id": "0bec5decb7d7d370",
+    "type": "split",
+    "children": [
+      {
+        "id": "2f065c02eb7e6ba6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "30af7e9dc2790e79",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "02 - Journal/Canvas/KZ750LTD_Custom-Wiring-Diagram.canvas",
+                "viewState": {
+                  "x": 1980.6342581636586,
+                  "y": -938.4898968046526,
+                  "zoom": -2.0608073869536336
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "KZ750LTD_Custom-Wiring-Diagram"
+            }
+          },
+          {
+            "id": "635b993e54258fae",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "01 - ORGANIZE/Motorcycle/DS2-2-Installation-Guide.pdf",
+                "page": 1,
+                "left": 0,
+                "top": 527,
+                "zoom": 0.48161764705882354
+              },
+              "icon": "lucide-file-text",
+              "title": "DS2-2-Installation-Guide"
+            }
+          },
+          {
+            "id": "ad8f2c416fd50723",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02 - Journal/Day/2025-01-03.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "2025-01-03"
+            }
+          },
+          {
+            "id": "1b3d5173e71cef83",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "04 - Stats (SOC 362)/Sociology 362_S25_01_21.pdf",
+                "page": 9,
+                "left": 0,
+                "top": 214,
+                "zoom": 0.48161764705882354
+              },
+              "icon": "lucide-file-text",
+              "title": "Sociology 362_S25_01_21"
+            }
+          },
+          {
+            "id": "0f4093917a529df4",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          },
+          {
+            "id": "6946e585f2426708",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02 - Journal/Day/2025-01-03.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "2025-01-03"
+            }
+          },
+          {
+            "id": "fdf63bda9f92d055",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02 - Journal/Day/2025-01-03.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "2025-01-03"
+            }
+          },
+          {
+            "id": "d92627425eb69c74",
+            "type": "leaf",
+            "state": {
+              "type": "video",
+              "state": {
+                "file": "01 - ORGANIZE/0312 Biblical Series 4 Adam and Eve Self-Consciousness, Evil, and Death.mp4"
+              },
+              "icon": "lucide-file",
+              "title": "0312 Biblical Series 4 Adam and Eve Self-Consciousness, Evil, and Death"
+            }
+          },
+          {
+            "id": "36acb74e3f5cd8d5",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "05 - Theory (SOC 773)/Syllabus Sociology 773 Spring 2025 (1).pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "Syllabus Sociology 773 Spring 2025 (1)"
+            }
+          },
+          {
+            "id": "d8f92dcbcc9a6a17",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "04 - Stats (SOC 362)/Sociology 362_S25_01_21.pdf",
+                "page": 1,
+                "zoom": 1
+              },
+              "icon": "lucide-file-text",
+              "title": "Sociology 362_S25_01_21"
+            }
+          },
+          {
+            "id": "8f7eed532daf65bb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "01 - ORGANIZE/Untitled 1.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Untitled 1"
+            }
+          },
+          {
+            "id": "dac5780bab976dae",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02 - Journal/Citations/@bhungalia_2024.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "@bhungalia_2024"
+            }
+          },
+          {
+            "id": "efc72c937096a7dd",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "07 - Empire (GEOG 919)/Political Geographies of Empire Syllabus.pdf",
+                "page": 6,
+                "left": 0,
+                "top": 38,
+                "zoom": 0.48161764705882354
+              },
+              "icon": "lucide-file-text",
+              "title": "Political Geographies of Empire Syllabus"
+            }
+          },
+          {
+            "id": "c574942c935ee579",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "02 - Journal/Cory Doctorow - The Internet Con_ How to Seize the Means of Computation-Verso.pdf",
+                "page": 12,
+                "left": 0,
+                "top": 435,
+                "zoom": 0.48161764705882354
+              },
+              "icon": "lucide-file-text",
+              "title": "Cory Doctorow - The Internet Con_ How to Seize the Means of Computation-Verso"
+            }
+          },
+          {
+            "id": "06f6d358cf13d9cb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02 - Journal/Tasks/Tasks.md",
+                "mode": "preview",
+                "source": true,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Tasks"
+            }
+          },
+          {
+            "id": "d5ae9bc8aeba2239",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "04 - Stats (SOC 362)/2024-09-07-soc361fa24-syllabus.pdf",
+                "page": 3,
+                "left": 0,
+                "top": 157,
+                "zoom": 0.48161764705882354
+              },
+              "icon": "lucide-file-text",
+              "title": "2024-09-07-soc361fa24-syllabus"
+            }
+          },
+          {
+            "id": "10cc5a17b800a883",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02 - Journal/Day/2025-01-05.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "2025-01-05"
+            }
+          },
+          {
+            "id": "4f4eacab4ddd7363",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02 - Journal/People/Arielle Ades.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Arielle Ades"
+            }
+          },
+          {
+            "id": "20ccbe11646e4a21",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02 - Journal/Day/2025-01-13.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "2025-01-13"
+            }
+          },
+          {
+            "id": "a693206a1a09ff4e",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          },
+          {
+            "id": "91424d06fe5d8131",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02 - Journal/Day/2025-01-18.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "2025-01-18"
+            }
+          },
+          {
+            "id": "6bddc5498ec3de39",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "01 - ORGANIZE/Motorcycle/DS2-2-Installation-Guide.pdf",
+                "page": 1,
+                "zoom": 1
+              },
+              "icon": "lucide-file-text",
+              "title": "DS2-2-Installation-Guide"
+            }
+          },
+          {
+            "id": "9df43dd6223e2cb2",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "01 - ORGANIZE/Motorcycle/KZ750LTD_Wiring-Diagram.pdf",
+                "page": 1,
+                "left": 0,
+                "top": 0,
+                "zoom": 0.3808139534883721
+              },
+              "icon": "lucide-file-text",
+              "title": "KZ750LTD_Wiring-Diagram"
+            }
+          },
+          {
+            "id": "c471cfb038087f35",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "01 - ORGANIZE/Motorcycle/20250322132932_001.pdf",
+                "page": 1,
+                "left": 0,
+                "top": 0,
+                "zoom": 0.3808139534883721
+              },
+              "icon": "lucide-file-text",
+              "title": "20250322132932_001"
+            }
+          },
+          {
+            "id": "8cd5c0202fcf8c33",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00 - Notes/Alloy/Achievement becomes employment.md",
+                "mode": "preview",
+                "source": true,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Achievement becomes employment"
+            }
+          },
+          {
+            "id": "2c1612437a60946d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "06 - Socio-Eco (SOC 925)/Socio-Eco Syllabus.md",
+                "mode": "preview",
+                "source": true,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Socio-Eco Syllabus"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a331f8aba8450f43",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "c634a0d2304fc731",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical",
+            "autoReveal": false
+          },
+          "icon": "lucide-folder-closed",
+          "title": "Files"
+        }
+      },
+      {
+        "id": "3e1ca8abb4346202",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-search",
+          "title": "Search"
+        }
+      },
+      {
+        "id": "2c74d97d546e4318",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-tags",
+          "title": "Tags"
+        }
+      },
+      {
+        "id": "4dc7a3701c9f8afd",
+        "type": "leaf",
+        "state": {
+          "type": "all-properties",
+          "state": {
+            "sortOrder": "frequency",
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-file",
+          "title": "Plugin no longer active"
+        }
+      },
+      {
+        "id": "6d35f58e2d2b0732",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {},
+          "icon": "lucide-bookmark",
+          "title": "Bookmarks"
+        }
+      },
+      {
+        "id": "cdf67443f95e4a0a",
+        "type": "leaf",
+        "state": {
+          "type": "tagfolder-view",
+          "state": {},
+          "icon": "stacked-levels",
+          "title": "Tag Folder"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "e042b263682d22e7",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "2f9aab9af51ca580",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "02 - Journal/Day/2025-01-06.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-coming-in",
+          "title": "Backlinks"
+        }
+      },
+      {
+        "id": "d5c6c93383c89fde",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "02 - Journal/Tasks/Tasks.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-going-out",
+          "title": "Outgoing links"
+        }
+      },
+      {
+        "id": "a4c08ea42df83444",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "02 - Journal/Tasks/Tasks.md"
+          },
+          "icon": "lucide-list",
+          "title": "Outline"
+        }
+      },
+      {
+        "id": "108ce1ca809f0ac5",
+        "type": "leaf",
+        "state": {
+          "type": "todo",
+          "state": {},
+          "icon": "lucide-file",
+          "title": "Plugin no longer active"
+        }
+      },
+      {
+        "id": "88c27cb436e22752",
+        "type": "leaf",
+        "state": {
+          "type": "calendar",
+          "state": {},
+          "icon": "lucide-file",
+          "title": "Plugin no longer active"
+        }
+      },
+      {
+        "id": "bff054359b038d5d",
+        "type": "leaf",
+        "state": {
+          "type": "journal-calendar",
+          "state": {},
+          "icon": "lucide-file",
+          "title": "Plugin no longer active"
+        }
+      },
+      {
+        "id": "73e78de948874064",
+        "type": "leaf",
+        "state": {
+          "type": "todo",
+          "state": {},
+          "icon": "checkmark",
+          "title": "Todo List"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "audio-recorder:Start/stop recording": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-kanban:Create new board": false,
+      "obsidian-book-search-plugin:Create new book note": false,
+      "obsidian-projects:Open projects": false,
+      "obsidian-plugin-update-tracker:Plugin Update Tracker": false,
+      "obsidian-extract-pdf-highlights:PDF Highlights": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false,
+      "callout-manager:Insert Callout": false,
+      "obsidian-importer:Open Importer": false
+    }
+  },
+  "active": "1b3d5173e71cef83",
+  "lastOpenFiles": [
+    "01 - ORGANIZE/Motorcycle/DS2-2-Installation-Guide.pdf",
+    "03 - Assets/Images/Screenshot 2025-04-25 at 11.18.36 AM.png",
+    "03 - Assets/Collins-SocialInequalityPower-2012.pdf",
+    "01 - ORGANIZE/Collins-SocialInequalityPower-2012.pdf",
+    "03 - Assets/Books/On the possibility of a field of world sociology.pdf",
+    "01 - ORGANIZE/On the possibility of a field of world sociology.pdf",
+    "02 - Journal/Canvas/KZ750LTD_Custom-Wiring-Diagram.canvas",
+    "02 - Journal/Tasks/Tasks.md",
+    "02 - Journal/Cory Doctorow - The Internet Con_ How to Seize the Means of Computation-Verso.pdf",
+    "01 - ORGANIZE/Install Morgen.app/Contents/Resources/Base.lproj/Main.storyboardc/Info.plist",
+    "01 - ORGANIZE/Install Morgen.app/Contents/Resources/Base.lproj/Main.storyboardc/MainMenu.nib",
+    "01 - ORGANIZE/Install Morgen.app/Contents/Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib",
+    "01 - ORGANIZE/Install Morgen.app/Contents/Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib",
+    "06 - Socio-Eco (SOC 925)/Socio-Eco Syllabus.md",
+    "00 - Notes/Alloy/Achievement becomes employment.md",
+    "03 - Assets/Images/Screenshot 2025-03-31 at 2.14.51 PM.png",
+    "03 - Assets/Images/Screenshot 2025-03-31 at 2.00.42 PM.png",
+    "02 - Journal/Citations/@bhungalia_2024.md",
+    "01 - ORGANIZE/Untitled 1.md",
+    "03 - Assets/Images/bhungalia_2024-undefined-x2-y2.png",
+    "mcgranahan_collins_2018/image-undefined-x1-y2.png",
+    "06 - Socio-Eco (SOC 925)/Socio-ECO MOC.md",
+    "03 - Assets/Images/image-undefined-x2-y3.png",
+    "03 - Assets/Images/image-undefined-x2-y2.png",
+    "03 - Assets/Images/image-31-x71-y539.png",
+    "03 - Assets/Images/image-undefined-x4-y7.png",
+    "03 - Assets/Images/image-117-x91-y307.png",
+    "03 - Assets/Templates/Template, Authors.md",
+    "01 - ORGANIZE/MyFilename.md",
+    "01 - ORGANIZE/Debbora Battaglia.md",
+    "01 - ORGANIZE/Untitled 2.md",
+    "01 - ORGANIZE/Adam Smith.md",
+    "01 - ORGANIZE/Franck Billé.md",
+    "00 - Notes/Atom/structural-functionalist.md",
+    "00 - Notes/Atom/Books MOC.md",
+    "02 - Journal/Day/2025-02-06.md",
+    "02 - Journal/Day/2025-02-07.md",
+    "02 - Journal/People/Debbora Battaglia.md",
+    "02 - Journal/People/Debbora Battaglia 1.md",
+    "02 - Journal/People/people_moc.md",
+    "02 - Journal/People/David Hume.md",
+    "02 - Journal/People/Talcott Parsons.md",
+    "02 - Journal/People/Paul Thomas.md",
+    "02 - Journal/People/Franck Billé 1.md",
+    "02 - Journal/People/Franck Billé.md",
+    "02 - Journal/Citations/@smith_.md",
+    "02 - Journal/Canvas/regressions.canvas"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "pathToPandoc": "/usr/local/bin/pandoc",
+  "tooltipDelay": 400,
+  "zoteroGroups": [
+    {
+      "id": 1,
+      "name": "My Library",
+      "lastUpdate": 1752872952527
+    }
+  ],
+  "renderCitations": true,
+  "renderCitationsReadingMode": true,
+  "renderLinkCitations": true,
+  "cslStyleURL": "https://raw.githubusercontent.com/citation-style-language/styles/master/american-sociological-association.csl",
+  "pullFromZotero": true,
+  "enableCiteKeyCompletion": true,
+  "showCitekeyTooltips": true,
+  "zoteroPort": "23124"
+}

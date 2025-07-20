@@ -1,0 +1,31 @@
+.theme-dark #calendar-container {
+    --color-background-day-empty: transparent;
+    --color-background-day-active: transparent;
+    --color-background-day-hover: var(--color-d-gray-50);
+    --color-dot: var(--color-d-blue-900);
+    --color-text-title: var(--text-normal);
+    --color-text-heading: var(--color-d-gray-40);
+    --color-text-day: var(--color-d-gray-20);
+    --color-text-today: var(--text-normal);
+    --color-text-weeknum: var(--text-muted);
+    --color-arrow: var(--color-d-gray-30);
+    --color-arrow-hover: var(--color-d-gray-10);
+  }
+  .theme-dark #calendar-container .active, .theme-dark #calendar-container .active.today {
+    background: var(--color-d-gray-70);
+    color: var(--color-d-white);
+    font-weight: var(--font-semi-bold);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0px -2px 0px 0px rgba(0, 0, 0, 0.15) inset, 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  }
+  .theme-dark #calendar-container .week-num:hover, .theme-dark #calendar-container .day:hover {
+    color: var(--color-d-white);
+    background: var(--color-d-gray-70);
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3) inset;
+  }
+  .theme-dark #calendar-container .week-num:active, .theme-dark #calendar-container .day:active {
+    background: var(--color-d-gray-100);
+  }
+  .theme-dark #calendar-container .reset-button:hover, .theme-dark #calendar-container .arrow:hover > svg {
+    color: var(--color-d-gray-20);
+  }
