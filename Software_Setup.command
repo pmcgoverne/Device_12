@@ -65,7 +65,7 @@ if [ -d "$ZOTERO_SUPPORT_PATH" ]; then
     echo -e "${yellow}⚠️ Zotero config exists. Attempting non-destructive plugin merge...${reset}"
 
     # Detect profile directory (first *.user folder inside Profiles/)
-    PROFILE_DIR=$(find "$ZOTERO_PROFILE_BASE" -type d -name "*.user" -depth 1 | head -n 1)
+    PROFILE_DIR=$(find "$ZOTERO_PROFILE_BASE" -type d -name "*." -depth 1 | head -n 1)
     if [ -z "$PROFILE_DIR" ]; then
         echo -e "${red}❌ Zotero profile folder not found. Cannot install extensions.${reset}"
     else
