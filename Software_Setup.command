@@ -52,6 +52,8 @@ else
 fi
 
 # --- 3. Zotero ---
+ZOTERO_PROFILE_BASE="$HOME/Library/Application Support/Zotero/Profiles"
+
 if [ ! -d "/Applications/Zotero.app" ]; then
     echo -e "${yellow}📦 Installing Zotero...${reset}"
     brew install --cask zotero
@@ -60,11 +62,59 @@ else
 fi
 
 if [ -d "$ZOTERO_SUPPORT_PATH" ]; then
-    echo -e "${yellow}⚠️ Zotero config exists at $ZOTERO_SUPPORT_PATH. Skipping copy.${reset}"
+    echo -e "${yellow}⚠️ Zotero config exists. Attempting non-destructive plugin merge...${reset}"
+
+    # Detect profile directory (first *.user folder inside Profiles/)
+    PROFILE_DIR=$(find "$ZOTERO_PROFILE_BASE" -type d -name "*.user" -depth 1 | head -n 1)
+    if [ -z "$PROFILE_DIR" ]; then
+        echo -e "${red}❌ Zotero profile folder not found. Cannot install extensions.${reset}"
+    else
+        echo -e "${yellow}🔍 Found Zotero profile: $PROFILE_DIR${reset}"
+
+        # 1. Copy new extensions into the profile's 'extensions/' dir
+        TEMPLATE_EXT_DIR="$TEMPLATE_ZOTERO_PATH/extensions"
+        TARGET_EXT_DIR="$PROFILE_DIR/extensions"
+        if [ -d "$TEMPLATE_EXT_DIR" ]; then
+            mkdir -p "$TARGET_EXT_DIR"
+            for plugin in "$TEMPLATE_EXT_DIR"/*.xpi; do
+                plugin_name=$(basename "$plugin")
+                if [ ! -f "$TARGET_EXT_DIR/$plugin_name" ]; then
+                    cp "$plugin" "$TARGET_EXT_DIR/"
+                    echo -e "${green}✅ Copied plugin: $plugin_name${reset}"
+                else
+                    echo -e "${yellow}⚠️ Plugin already exists: $plugin_name (skipped)${reset}"
+                fi
+            done
+        fi
+
+        # 2. Update prefs.js with necessary lines (if not already present)
+        PREFS_FILE="$PROFILE_DIR/prefs.js"
+        if [ -f "$PREFS_FILE" ]; then
+            echo -e "${yellow}🛠 Updating prefs.js safely...${reset}"
+
+            declare -A NEW_PREFS=(
+                ["extensions.zotero.translators.better-bibtex.autoExport"]="true"
+                ["extensions.zotero.translators.better-bibtex.quickCopyMode"]="\"citation key\""
+                ["extensions.zotmoov.file_behavior"]="\"copy\""
+            )
+
+            for key in "${!NEW_PREFS[@]}"; do
+                value="${NEW_PREFS[$key]}"
+                if grep -q "user_pref(\"$key\"" "$PREFS_FILE"; then
+                    echo -e "${yellow}⚠️ Pref already exists: $key (skipped)${reset}"
+                else
+                    echo "user_pref(\"$key\", $value);" >> "$PREFS_FILE"
+                    echo -e "${green}✅ Added pref: $key = $value${reset}"
+                fi
+            done
+        else
+            echo -e "${red}❌ prefs.js not found in: $PROFILE_DIR${reset}"
+        fi
+    fi
 elif [ -d "$TEMPLATE_ZOTERO_PATH" ]; then
-    echo -e "${yellow}📁 Copying Zotero config...${reset}"
+    echo -e "${yellow}📁 No Zotero config found. Copying full template...${reset}"
     cp -R "$TEMPLATE_ZOTERO_PATH" "$ZOTERO_SUPPORT_PATH"
-    echo -e "${green}✅ Zotero config copied.${reset}"
+    echo -e "${green}✅ Zotero config copied fresh.${reset}"
 else
     echo -e "${red}⚠️ Zotero template not found. Skipping.${reset}"
 fi
