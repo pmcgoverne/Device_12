@@ -19,6 +19,17 @@ VAULT_NAME="Template"
 SOURCE_VAULT="$SCRIPT_DIR/Template"
 DEST_VAULT="$HOME/Documents/Obsidian Vaults/$VAULT_NAME"
 
+# --- Mode Selection ---
+echo -e "\nChoose integration mode:"
+echo "1) Full Setup (Install everything and use provided configs)"
+echo "2) Partial Setup (Keep your Zotero/Obsidian configs, just install tools)"
+echo "3) Cancel"
+read -p "Enter 1, 2, or 3: " mode
+
+if [ "$mode" == "3" ]; then
+    echo -e "${red}❌ Cancelled by user.${reset}"
+    exit 1
+fi
 
 # --- 1. Homebrew ---
 if ! command -v brew &> /dev/null; then
@@ -59,14 +70,16 @@ else
     echo -e "${green}✅ Zotero already installed.${reset}"
 fi
 
-if [ -d "$ZOTERO_SUPPORT_PATH" ]; then
-    echo -e "${yellow}⚠️ Zotero config exists at $ZOTERO_SUPPORT_PATH. Skipping copy.${reset}"
-elif [ -d "$TEMPLATE_ZOTERO_PATH" ]; then
-    echo -e "${yellow}📁 Copying Zotero config...${reset}"
-    cp -R "$TEMPLATE_ZOTERO_PATH" "$ZOTERO_SUPPORT_PATH"
-    echo -e "${green}✅ Zotero config copied.${reset}"
-else
-    echo -e "${red}⚠️ Zotero template not found. Skipping.${reset}"
+if [ "$mode" == "1" ]; then
+    if [ -d "$ZOTERO_SUPPORT_PATH" ]; then
+        echo -e "${yellow}⚠️ Zotero config exists at $ZOTERO_SUPPORT_PATH. Skipping copy.${reset}"
+    elif [ -d "$TEMPLATE_ZOTERO_PATH" ]; then
+        echo -e "${yellow}📁 Copying Zotero config...${reset}"
+        cp -R "$TEMPLATE_ZOTERO_PATH" "$ZOTERO_SUPPORT_PATH"
+        echo -e "${green}✅ Zotero config copied.${reset}"
+    else
+        echo -e "${red}⚠️ Zotero template not found. Skipping.${reset}"
+    fi
 fi
 
 
@@ -79,17 +92,18 @@ else
     echo -e "${green}✅ Obsidian already installed.${reset}"
 fi
 
-if [ -d "$DEST_VAULT" ]; then
-    echo -e "${yellow}⚠️ Obsidian vault '${VAULT_NAME}' already exists. Skipping copy.${reset}"
-elif [ -d "$SOURCE_VAULT" ]; then
-    echo -e "${yellow}📂 Copying Obsidian vault...${reset}"
-    mkdir -p "$(dirname "$DEST_VAULT")"
-    cp -R "$SOURCE_VAULT" "$DEST_VAULT"
-    echo -e "${green}✅ Vault copied to: $DEST_VAULT${reset}"
-else
-    echo -e "${red}⚠️ Vault template not found. Skipping.${reset}"
+if [ "$mode" == "1" ]; then
+    if [ -d "$DEST_VAULT" ]; then
+        echo -e "${yellow}⚠️ Obsidian vault '${VAULT_NAME}' already exists. Skipping copy.${reset}"
+    elif [ -d "$SOURCE_VAULT" ]; then
+        echo -e "${yellow}📂 Copying Obsidian vault...${reset}"
+        mkdir -p "$(dirname "$DEST_VAULT")"
+        cp -R "$SOURCE_VAULT" "$DEST_VAULT"
+        echo -e "${green}✅ Vault copied to: $DEST_VAULT${reset}"
+    else
+        echo -e "${red}⚠️ Vault template not found. Skipping.${reset}"
+    fi
 fi
-
 
 
 
@@ -105,6 +119,18 @@ echo -e "1. Open Settings → Zotero Integration → Custom Database"
 echo -e "2. Paste API Key from Zotero"
 echo -e "3. In Pandoc Reference List → Enable 'Pull Bibliography from Zotero'"
 echo -e "4. Set path: 00 - Assets/Sources/my_library.bib"
+
+# --- 7. Python Setup ---
+if [ -f "requirements.txt" ]; then
+    echo -e "\n🐍 ${yellow}Setting up Python environment...${reset}"
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install --upgrade pip
+    pip install -r requirements.txt
+    echo -e "${green}✅ Python environment ready. Run: source venv/bin/activate${reset}"
+else
+    echo -e "${yellow}⚠️ No requirements.txt found. Skipping Python setup.${reset}"
+fi
 
 # --- Complete ---
 echo -e "\n🎉 ${green}Toolkit setup complete! Finish the manual steps to start using the system.${reset}"
