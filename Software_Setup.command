@@ -20,7 +20,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ZOTERO_SUPPORT_PATH="$HOME/Library/Application Support/Zotero"
 ZOTERO_PROFILE_BASE="$ZOTERO_SUPPORT_PATH/Profiles"
 TEMPLATE_ZOTERO_PATH="$SCRIPT_DIR/Zotero"
-TEMPLATE_PREFS_FILE="$TEMPLATE_ZOTERO_PATH/prefs.js"
+TEMPLATE_PREFS_FILE="$SCRIPT_DIR/Zotero/Profiles/8g56zk9v.user/prefs.js"
 EXTENSIONS_DIR="$(find "$TEMPLATE_ZOTERO_PATH/Profiles" -type d -depth 1 | head -n 1)/extensions"
 VAULT_NAME="Template"
 SOURCE_VAULT="$SCRIPT_DIR/Template"
@@ -89,21 +89,9 @@ if [ -d "$ZOTERO_SUPPORT_PATH" ]; then
             echo -e "${red}❌ No 'extensions/' folder found in script directory. Skipping plugin copy.${reset}"
         fi
 
-        echo -e "${yellow}🧹 Clearing Zotero startup cache...${reset}"
-        rm -f "$PROFILE_DIR/extensions.json"
-        rm -rf "$PROFILE_DIR/startupCache" "$PROFILE_DIR/startupCache.*"
-
-        if [ -f "$TEMPLATE_PREFS_FILE" ]; then
             echo -e "${yellow}📄 Overwriting Zotero prefs.js with template version...${reset}"
             cp "$TEMPLATE_PREFS_FILE" "$PROFILE_DIR/prefs.js"
             echo -e "${green}✅ prefs.js replaced with template.${reset}"
-        fi
-
-        echo -e "${yellow}🚀 Launching Zotero briefly to initialize extensions...${reset}"
-        open -a "Zotero"
-        sleep 8
-        osascript -e 'tell application "Zotero" to quit'
-        echo -e "${green}✅ Zotero extensions initialized and ready.${reset}"
     fi
 elif [ -d "$TEMPLATE_ZOTERO_PATH" ]; then
     echo -e "${yellow}📁 No Zotero config found. Copying full template...${reset}"
