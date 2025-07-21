@@ -25,9 +25,9 @@ if ! command -v brew &> /dev/null; then
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     if [[ -f /opt/homebrew/bin/brew ]]; then
-        eval "$\(/opt/homebrew/bin/brew shellenv\)"
+        eval "$(/opt/homebrew/bin/brew shellenv)"
     elif [[ -f /usr/local/bin/brew ]]; then
-        eval "$\(/usr/local/bin/brew shellenv\)"
+        eval "$(/usr/local/bin/brew shellenv)"
     fi
 
     if ! command -v brew &> /dev/null; then
@@ -94,6 +94,12 @@ if [ -d "$ZOTERO_SUPPORT_PATH" ]; then
             echo -e "${yellow}🧹 Clearing Zotero startup cache to refresh extensions...${reset}"
             rm -f "$PROFILE_DIR/extensions.json"
             rm -rf "$PROFILE_DIR/startupCache" "$PROFILE_DIR/startupCache.*"
+
+            if [ -f "$TEMPLATE_ZOTERO_PATH/prefs.js" ]; then
+                echo -e "${yellow}📄 Overwriting Zotero prefs.js with template version...${reset}"
+                cp "$TEMPLATE_ZOTERO_PATH/prefs.js" "$PROFILE_DIR/prefs.js"
+                echo -e "${green}✅ prefs.js replaced with template.${reset}"
+            fi
 
             echo -e "${yellow}🚀 Launching Zotero briefly to initialize extensions...${reset}"
             open -a "Zotero"
