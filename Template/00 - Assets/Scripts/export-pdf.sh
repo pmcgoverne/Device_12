@@ -18,7 +18,7 @@ trap 'rm -f "$LOCK"' EXIT
 
 TEMPLATE_DIR="00 - Assets/Pandoc Templates"
 LUA_FILTER="00 - Assets/Scripts/wikicite.lua"
-BIB_FILE="00 - Assets/Sources/my_library.bib"
+BIB_FILE="00 - Assets/Sources/My Library.bib"
 
 case "$CHOICE" in
   Abstract)
