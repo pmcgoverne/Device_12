@@ -10,11 +10,18 @@ yellow="\033[1;33m"
 red="\033[0;31m"
 reset="\033[0m"
 
+# --- Ensure Zotero is not running ---
+echo -e "\n${yellow}🛑 Closing Zotero if running...${reset}"
+osascript -e 'tell application "Zotero" to quit'
+sleep 3  # give it a moment to close
 
-# Always resolve template paths relative to the script's location
+# --- PATH SETUP ---
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ZOTERO_SUPPORT_PATH="$HOME/Library/Application Support/Zotero"
+ZOTERO_PROFILE_BASE="$ZOTERO_SUPPORT_PATH/Profiles"
 TEMPLATE_ZOTERO_PATH="$SCRIPT_DIR/Zotero"
+TEMPLATE_PREFS_FILE="$SCRIPT_DIR/Zotero/Profiles/8g56zk9v.user/prefs.js"
+EXTENSIONS_DIR="$(find "$TEMPLATE_ZOTERO_PATH/Profiles" -type d -depth 1 | head -n 1)/extensions"
 VAULT_NAME="Template"
 SOURCE_VAULT="$SCRIPT_DIR/Template"
 DEST_VAULT="$HOME/Documents/Obsidian Vaults/$VAULT_NAME"
@@ -25,7 +32,6 @@ if ! command -v brew &> /dev/null; then
     echo -e "${yellow}🛠 Installing Homebrew...${reset}"
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    # Add brew to path without needing user to restart terminal
     if [[ -f /opt/homebrew/bin/brew ]]; then
         eval "$(/opt/homebrew/bin/brew shellenv)"
     elif [[ -f /usr/local/bin/brew ]]; then
@@ -33,8 +39,8 @@ if ! command -v brew &> /dev/null; then
     fi
 
     if ! command -v brew &> /dev/null; then
-        echo -e "${red}❌ Homebrew was installed but still not available in PATH.${reset}"
-        echo -e "${yellow}👉 Please restart Terminal or source brew manually, then rerun this script.${reset}"
+        echo -e "${red}❌ Homebrew was installed but is not in PATH.${reset}"
+        echo -e "${yellow}👉 Restart Terminal or source brew manually, then rerun.${reset}"
         exit 1
     else
         echo -e "${green}✅ Homebrew installed and available.${reset}"
@@ -60,16 +66,40 @@ else
 fi
 
 if [ -d "$ZOTERO_SUPPORT_PATH" ]; then
-    echo -e "${yellow}⚠️ Zotero config exists at $ZOTERO_SUPPORT_PATH. Skipping copy.${reset}"
+    echo -e "${yellow}⚠️ Zotero config exists. Merging plugins and preferences...${reset}"
+
+    PROFILE_DIR=$(find "$ZOTERO_PROFILE_BASE" -type d -depth 1 | head -n 1)
+    if [ -z "$PROFILE_DIR" ]; then
+        echo -e "${red}❌ Zotero profile folder not found. Cannot install extensions.${reset}"
+    else
+        echo -e "${yellow}🔍 Found Zotero profile: $PROFILE_DIR${reset}"
+
+        TARGET_EXT_DIR="$PROFILE_DIR/extensions"
+        mkdir -p "$TARGET_EXT_DIR"
+
+        if [ -d "$EXTENSIONS_DIR" ]; then
+            echo -e "${yellow}🤚 Found plugins to install from script directory:${reset}"
+            for plugin in "$EXTENSIONS_DIR"/*.xpi; do
+                [ -e "$plugin" ] || continue
+                plugin_name=$(basename "$plugin")
+                cp "$plugin" "$TARGET_EXT_DIR/$plugin_name"
+                echo -e "${green}✅ Copied plugin: $plugin_name${reset}"
+            done
+        else
+            echo -e "${red}❌ No 'extensions/' folder found in script directory. Skipping plugin copy.${reset}"
+        fi
+
+            echo -e "${yellow}📄 Overwriting Zotero prefs.js with template version...${reset}"
+            cp "$TEMPLATE_PREFS_FILE" "$PROFILE_DIR/prefs.js"
+            echo -e "${green}✅ prefs.js replaced with template.${reset}"
+    fi
 elif [ -d "$TEMPLATE_ZOTERO_PATH" ]; then
-    echo -e "${yellow}📁 Copying Zotero config...${reset}"
+    echo -e "${yellow}📁 No Zotero config found. Copying full template...${reset}"
     cp -R "$TEMPLATE_ZOTERO_PATH" "$ZOTERO_SUPPORT_PATH"
-    echo -e "${green}✅ Zotero config copied.${reset}"
+    echo -e "${green}✅ Zotero config copied fresh.${reset}"
 else
-    echo -e "${red}⚠️ Zotero template not found. Skipping.${reset}"
+    echo -e "${red}❌ Zotero template not found. Skipping.${reset}"
 fi
-
-
 
 # --- 4. Obsidian ---
 if [ ! -d "/Applications/Obsidian.app" ]; then
@@ -80,18 +110,15 @@ else
 fi
 
 if [ -d "$DEST_VAULT" ]; then
-    echo -e "${yellow}⚠️ Obsidian vault '${VAULT_NAME}' already exists. Skipping copy.${reset}"
+    echo -e "${yellow}⚠️ Obsidian vault '$VAULT_NAME' already exists. Skipping copy.${reset}"
 elif [ -d "$SOURCE_VAULT" ]; then
     echo -e "${yellow}📂 Copying Obsidian vault...${reset}"
-    mkdir -p "$(dirname "$DEST_VAULT")"
+    mkdir -p "$(dirname \"$DEST_VAULT\")"
     cp -R "$SOURCE_VAULT" "$DEST_VAULT"
     echo -e "${green}✅ Vault copied to: $DEST_VAULT${reset}"
 else
     echo -e "${red}⚠️ Vault template not found. Skipping.${reset}"
 fi
-
-
-
 
 # --- 5. Zotero Plugin Instructions ---
 echo -e "\n📄 ${yellow}Manual Zotero Setup:${reset}"
@@ -106,5 +133,5 @@ echo -e "2. Paste API Key from Zotero"
 echo -e "3. In Pandoc Reference List → Enable 'Pull Bibliography from Zotero'"
 echo -e "4. Set path: 00 - Assets/Sources/my_library.bib"
 
-# --- Complete ---
+# --- 7. Done ---
 echo -e "\n🎉 ${green}Toolkit setup complete! Finish the manual steps to start using the system.${reset}"
