@@ -11,10 +11,12 @@ red="\033[0;31m"
 reset="\033[0m"
 
 # --- PATH SETUP ---
-SCRIPT_DIR="$(cd \"$(dirname \"$0\")\" && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ZOTERO_SUPPORT_PATH="$HOME/Library/Application Support/Zotero"
 ZOTERO_PROFILE_BASE="$ZOTERO_SUPPORT_PATH/Profiles"
 TEMPLATE_ZOTERO_PATH="$SCRIPT_DIR/Zotero"
+TEMPLATE_PREFS_FILE="$TEMPLATE_ZOTERO_PATH/prefs.js"
+EXTENSIONS_DIR="$SCRIPT_DIR/extensions"
 VAULT_NAME="Template"
 SOURCE_VAULT="$SCRIPT_DIR/Template"
 DEST_VAULT="$HOME/Documents/Obsidian Vaults/$VAULT_NAME"
@@ -66,49 +68,36 @@ if [ -d "$ZOTERO_SUPPORT_PATH" ]; then
     else
         echo -e "${yellow}🔍 Found Zotero profile: $PROFILE_DIR${reset}"
 
-        TEMPLATE_EXT_DIR=$(find "$TEMPLATE_ZOTERO_PATH" -type d -iname "extensions" | head -n 1)
-        echo -e "${yellow}📁 Using template extensions folder: $TEMPLATE_EXT_DIR${reset}"
-
         TARGET_EXT_DIR="$PROFILE_DIR/extensions"
         mkdir -p "$TARGET_EXT_DIR"
 
-        if [ -d "$TEMPLATE_EXT_DIR" ]; then
-            echo -e "${yellow}🤚 Found plugins to install:${reset}"
-            ls "$TEMPLATE_EXT_DIR"/*.xpi 2>/dev/null || echo "None found"
-
-            for plugin in "$TEMPLATE_EXT_DIR"/*.xpi; do
-                if [ ! -e "$plugin" ]; then
-                    echo -e "${red}❌ No .xpi plugin files found. Skipping.${reset}"
-                    break
-                fi
-
+        if [ -d "$EXTENSIONS_DIR" ]; then
+            echo -e "${yellow}🤚 Found plugins to install from script directory:${reset}"
+            for plugin in "$EXTENSIONS_DIR"/*.xpi; do
+                [ -e "$plugin" ] || continue
                 plugin_name=$(basename "$plugin")
-                if [ ! -f "$TARGET_EXT_DIR/$plugin_name" ]; then
-                    cp "$plugin" "$TARGET_EXT_DIR/"
-                    echo -e "${green}✅ Copied plugin: $plugin_name${reset}"
-                else
-                    echo -e "${yellow}⚠️ Plugin exists: $plugin_name (skipped)${reset}"
-                fi
+                cp "$plugin" "$TARGET_EXT_DIR/$plugin_name"
+                echo -e "${green}✅ Copied plugin: $plugin_name${reset}"
             done
-
-            echo -e "${yellow}🧹 Clearing Zotero startup cache to refresh extensions...${reset}"
-            rm -f "$PROFILE_DIR/extensions.json"
-            rm -rf "$PROFILE_DIR/startupCache" "$PROFILE_DIR/startupCache.*"
-
-            if [ -f "$TEMPLATE_ZOTERO_PATH/prefs.js" ]; then
-                echo -e "${yellow}📄 Overwriting Zotero prefs.js with template version...${reset}"
-                cp "$TEMPLATE_ZOTERO_PATH/prefs.js" "$PROFILE_DIR/prefs.js"
-                echo -e "${green}✅ prefs.js replaced with template.${reset}"
-            fi
-
-            echo -e "${yellow}🚀 Launching Zotero briefly to initialize extensions...${reset}"
-            open -a "Zotero"
-            sleep 8
-            osascript -e 'tell application "Zotero" to quit'
-            echo -e "${green}✅ Zotero extensions initialized and ready.${reset}"
         else
-            echo -e "${red}❌ No 'extensions/' folder found in Zotero template directory. Skipping plugin copy.${reset}"
+            echo -e "${red}❌ No 'extensions/' folder found in script directory. Skipping plugin copy.${reset}"
         fi
+
+        echo -e "${yellow}🧹 Clearing Zotero startup cache...${reset}"
+        rm -f "$PROFILE_DIR/extensions.json"
+        rm -rf "$PROFILE_DIR/startupCache" "$PROFILE_DIR/startupCache.*"
+
+        if [ -f "$TEMPLATE_PREFS_FILE" ]; then
+            echo -e "${yellow}📄 Overwriting Zotero prefs.js with template version...${reset}"
+            cp "$TEMPLATE_PREFS_FILE" "$PROFILE_DIR/prefs.js"
+            echo -e "${green}✅ prefs.js replaced with template.${reset}"
+        fi
+
+        echo -e "${yellow}🚀 Launching Zotero briefly to initialize extensions...${reset}"
+        open -a "Zotero"
+        sleep 8
+        osascript -e 'tell application "Zotero" to quit'
+        echo -e "${green}✅ Zotero extensions initialized and ready.${reset}"
     fi
 elif [ -d "$TEMPLATE_ZOTERO_PATH" ]; then
     echo -e "${yellow}📁 No Zotero config found. Copying full template...${reset}"
