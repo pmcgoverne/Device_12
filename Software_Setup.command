@@ -65,11 +65,12 @@ if [ -d "$ZOTERO_SUPPORT_PATH" ]; then
     echo -e "${yellow}⚠️ Zotero config exists. Attempting non-destructive plugin merge...${reset}"
 
     # Detect profile directory (first *.user folder inside Profiles/)
-    PROFILE_DIR=$(find "$ZOTERO_PROFILE_BASE" -type d -name "*." -depth 1 | head -n 1)
+     PROFILE_DIR=$(find "$ZOTERO_PROFILE_BASE" -type d -depth 1 | head -n 1)
     if [ -z "$PROFILE_DIR" ]; then
         echo -e "${red}❌ Zotero profile folder not found. Cannot install extensions.${reset}"
     else
         echo -e "${yellow}🔍 Found Zotero profile: $PROFILE_DIR${reset}"
+
 
         # 1. Copy new extensions into the profile's 'extensions/' dir
         TEMPLATE_EXT_DIR="$TEMPLATE_ZOTERO_PATH/extensions"
