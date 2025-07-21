@@ -1,0 +1,22 @@
+/* Use the ::before pseudo-element to create a hover detection area */
+.workspace-tabs:not(.mod-top) .workspace-tab-header-container::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    --height-detection-area: 10px;
+    height: var(--height-detection-area);
+    right: 0;
+    left: 0;
+    bottom: calc(-1 * var(--height-detection-area));
+}
+/* By default, set the max height to 0 */
+.workspace-tabs:not(.mod-top) .workspace-tab-header-container {
+    z-index: 1;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+}
+/* On hover, set the max-height to 100vh */
+.workspace-tabs:not(.mod-top) .workspace-tab-header-container:hover {
+    max-height: 100vh;
+    transition: max-height 0.7s ease-in;
+}

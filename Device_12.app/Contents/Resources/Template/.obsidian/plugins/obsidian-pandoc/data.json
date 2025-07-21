@@ -1,0 +1,15 @@
+{
+  "showCLICommands": true,
+  "addExtensionsToInternalLinks": "html",
+  "injectAppCSS": "light",
+  "injectThemeCSS": false,
+  "customCSSFile": null,
+  "displayYAMLFrontmatter": false,
+  "linkStrippingBehaviour": "text",
+  "highDPIDiagrams": true,
+  "pandoc": "/Users/paulmcgovern/.local/share/pandoc",
+  "pdflatex": null,
+  "outputFolder": "/Users/paulmcgovern/Library/Mobile Documents/iCloud~md~obsidian/Documents/Primary/01 - ORGANIZE",
+  "extraArguments": "--bibliography \"/Users/paulmcgovern/Library/Mobile Documents/iCloud~md~obsidian/Documents/Primary/my_library.bib\"",
+  "exportFrom": "md"
+}

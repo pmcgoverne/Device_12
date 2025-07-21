@@ -1,0 +1,163 @@
+{
+  "callouts": {
+    "custom": [
+      "yellow",
+      "blue",
+      "green",
+      "purple",
+      "red",
+      "orange",
+      "pink",
+      "people",
+      "one",
+      "grey",
+      "indigo",
+      "dark-grey",
+      "light-grey",
+      "black"
+    ],
+    "settings": {
+      "yellow": [
+        {
+          "changes": {
+            "icon": "lucide-star"
+          }
+        },
+        {
+          "condition": {
+            "colorScheme": "light"
+          },
+          "changes": {}
+        },
+        {
+          "condition": {
+            "colorScheme": "dark"
+          },
+          "changes": {
+            "color": "208, 181, 48"
+          }
+        }
+      ],
+      "blue": [
+        {
+          "changes": {
+            "icon": "lucide-percent",
+            "color": "82, 139, 212"
+          }
+        }
+      ],
+      "green": [
+        {
+          "changes": {
+            "icon": "lucide-lightbulb",
+            "color": "68, 207, 110"
+          }
+        }
+      ],
+      "purple": [
+        {
+          "changes": {
+            "icon": "lucide-pencil",
+            "color": "168, 130, 255"
+          }
+        }
+      ],
+      "red": [
+        {
+          "changes": {
+            "icon": "lucide-x",
+            "color": "251, 70, 76"
+          }
+        }
+      ],
+      "orange": [
+        {
+          "changes": {
+            "icon": "lucide-clipboard-list",
+            "color": "233, 151, 63"
+          }
+        }
+      ],
+      "pink": [
+        {
+          "changes": {
+            "icon": "question-mark-glyph",
+            "color": "227, 107, 167"
+          }
+        }
+      ],
+      "people": [
+        {
+          "changes": {
+            "icon": "lucide-smile",
+            "color": "166, 189, 197"
+          }
+        }
+      ],
+      "grey": [
+        {
+          "changes": {
+            "color": "158, 158, 158"
+          }
+        }
+      ],
+      "info": [
+        {
+          "changes": {
+            "color": "161, 106, 73"
+          }
+        }
+      ],
+      "indigo": [
+        {
+          "changes": {
+            "color": "63, 81, 181"
+          }
+        }
+      ],
+      "dark-grey": [
+        {
+          "changes": {
+            "icon": "lucide-text",
+            "color": "77, 77, 77"
+          }
+        }
+      ],
+      "light-grey": [
+        {
+          "changes": {
+            "icon": "lucide-quote"
+          }
+        },
+        {
+          "condition": {
+            "colorScheme": "light"
+          },
+          "changes": {
+            "color": "255, 255, 255"
+          }
+        },
+        {
+          "condition": {
+            "colorScheme": "dark"
+          },
+          "changes": {
+            "color": "255, 255, 255"
+          }
+        }
+      ],
+      "black": [
+        {
+          "changes": {
+            "color": "0, 0, 0"
+          }
+        }
+      ]
+    }
+  },
+  "calloutDetection": {
+    "obsidian": true,
+    "theme": true,
+    "snippet": true
+  }
+}

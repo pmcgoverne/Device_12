@@ -1,0 +1,60 @@
+
+.mb-button.green-button > button {
+  /* Layout & sizing */
+  padding: 1rem 2rem;
+  display: inline-block;
+  cursor: pointer;
+
+  /* Typography */
+  font-family: 'VT323', monospace;  /* Or your retro font of choice */
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  /* Colors & style */
+  color: #00ff44;               /* Bright green text */
+  background-color: #111;       /* Dark/black background */
+  border: 2px solid #00ff44;    /* Matching bright green border */
+
+  /* Retro “glow” effect */
+  box-shadow: 0 0 10px #00ff44;
+  text-shadow: 0 0 5px #00ff44;
+
+  /* Transition for hover/focus effects */
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.retro-button:hover {
+  background-color: #0a0a0a;
+  box-shadow: 0 0 20px #00ff44;
+}
+
+.retro-button:active {
+  background-color: #050505;
+  box-shadow: 0 0 5px #00ff44 inset;
+}
+
+.retro-button:focus {
+  outline: none;
+  box-shadow: 0 0 20px #00ff44, 0 0 5px #00ff44 inset;
+}
+.mb-button.green-button {
+  position: relative;
+  isolation: isolate;
+}
+
+.mb-button.green-button::after {
+  background-color: pink;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: transform 250ms;
+}
+
+.mb-button.green-button:hover::after {
+  transform: scale(1.1);
+}

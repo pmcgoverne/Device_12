@@ -1,0 +1,13 @@
+/* source view */
+.HyperMD-list-line.HyperMD-list-line-1.cm-line {
+  left: 50%;
+  right: 0;
+}
+
+/* live preview */
+ul.has-list-bullet {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

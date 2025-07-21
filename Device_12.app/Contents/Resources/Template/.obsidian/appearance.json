@@ -1,0 +1,25 @@
+{
+  "enabledCssSnippets": [
+    "supercharged-links-gen",
+    "Calendar Styles",
+    "Cards Background",
+    "Colored Sidebar Items",
+    "Column Thingy Disappear",
+    "Command Prompt",
+    "Daily Note Themes",
+    "power-callouts",
+    "styles",
+    "file-explorer-separators",
+    "Notebook Backgrounds",
+    "grain",
+    "justified bullets",
+    "Literature Note",
+    "Literature Note copy",
+    "Dropshadow",
+    "Cards",
+    "MCL Multi Column"
+  ],
+  "cssTheme": "Minimal",
+  "accentColor": "#878787",
+  "translucency": true
+}

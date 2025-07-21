@@ -1,0 +1,28 @@
+{
+  "version": 4,
+  "homepages": {
+    "Main Homepage": {
+      "value": "00 - Assets/home",
+      "kind": "File",
+      "openOnStartup": true,
+      "openMode": "Keep open notes",
+      "manualOpenMode": "Keep open notes",
+      "view": "Reading view",
+      "revertView": true,
+      "openWhenEmpty": true,
+      "refreshDataview": false,
+      "autoCreate": false,
+      "autoScroll": false,
+      "pin": false,
+      "commands": [
+        {
+          "id": "templater-obsidian:create-00 - Assets/Templates/Template, Master.md",
+          "period": "Both"
+        }
+      ],
+      "alwaysApply": false,
+      "hideReleaseNotes": false
+    }
+  },
+  "separateMobile": false
+}

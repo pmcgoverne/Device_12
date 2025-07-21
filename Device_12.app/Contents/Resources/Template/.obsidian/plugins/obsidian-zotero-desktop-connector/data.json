@@ -1,0 +1,22 @@
+{
+  "database": "Custom",
+  "noteImportFolder": "01 - Notes",
+  "pdfExportImageDPI": 120,
+  "pdfExportImageFormat": "jpg",
+  "pdfExportImageQuality": 90,
+  "citeFormats": [],
+  "exportFormats": [
+    {
+      "name": "Journal",
+      "outputPathTemplate": "{{citekey}}.md",
+      "imageOutputPathTemplate": "00 - Assets/Images",
+      "imageBaseNameTemplate": "{{citekey}}/",
+      "templatePath": "00 - Assets/Templates/Template, Zotero.md"
+    }
+  ],
+  "citeSuggestTemplate": "[[{{citekey}}]]",
+  "openNoteAfterImport": false,
+  "whichNotesToOpenAfterImport": "first-imported-note",
+  "exeOverridePath": "",
+  "port": "23124"
+}

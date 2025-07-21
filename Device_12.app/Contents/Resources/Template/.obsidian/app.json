@@ -1,0 +1,19 @@
+{
+  "promptDelete": false,
+  "attachmentFolderPath": "00 - Assets/Images",
+  "defaultViewMode": "preview",
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "99 - Files/Obsidian .md\"s",
+  "pdfExportSettings": {
+    "includeName": false,
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  },
+  "uriCallbacks": true,
+  "showLineNumber": true,
+  "livePreview": false,
+  "spellcheck": true
+}

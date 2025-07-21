@@ -1,0 +1,52 @@
+\documentclass[11pt,oneside]{scrartcl}
+
+%————— Packages —————%
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}                   % scalable fonts
+\usepackage{microtype}                 % typographic refinements
+\usepackage[margin=1in]{geometry}      % 1" margins
+\usepackage{setspace}                  % line spacing
+\usepackage{graphicx}                  % images
+\usepackage{amsmath,amssymb,amsthm}     % math
+\usepackage{booktabs}                  % nicer tables
+\usepackage{caption}                   % caption tweaks
+\usepackage{enumitem}                  % control lists
+\usepackage[english]{babel}            % language
+\usepackage{xcolor}                    % colors
+\usepackage{hyperref}                  % hyperlinks
+  \hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+  }
+
+%————— Bibliography via biblatex —————%
+\usepackage[backend=biber,style=authoryear,sorting=nyt]{biblatex}
+$if(bibliography)$
+\addbibresource{$for(bibliography)$$bibliography$$sep$,$endfor$}
+$endif$
+
+%————— Metadata —————%
+\title{$title$}
+\author{$for(author)$$author$$sep$ \and $endfor$}
+\date{$date$}
+
+%————— Begin Document —————%
+\begin{document}
+\maketitle
+
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+
+\onehalfspacing
+$body$
+
+$if(bibliography)$
+\printbibliography
+$endif$
+\end{document}

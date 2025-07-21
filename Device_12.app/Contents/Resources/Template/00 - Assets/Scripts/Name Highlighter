@@ -1,0 +1,41 @@
+import fitz   # PyMuPDF
+import spacy
+import argparse
+
+def highlight_names_in_pdf(input_pdf: str, output_pdf: str):
+    # load spaCy model
+    nlp = spacy.load("en_core_web_sm")
+
+    # open source PDF
+    doc = fitz.open(input_pdf)
+
+    for page in doc:
+        # extract full page text
+        raw_text = page.get_text()
+        # run NER
+        spacy_doc = nlp(raw_text)
+        # gather unique names
+        names = {ent.text for ent in spacy_doc.ents if ent.label_ == "PERSON"}
+
+        # for each name, find all occurrences and highlight
+        for name in names:
+            # this returns a list of rectangles where the text occurs
+            areas = page.search_for(name)
+            for rect in areas:
+                annot = page.add_highlight_annot(rect)
+                # optional: set a yellow stroke
+                annot.set_colors(stroke=(1, 1, 0))
+                annot.update()
+
+    # save to new PDF (optimize & compress)
+    doc.save(output_pdf, garbage=4, deflate=True)
+    doc.close()
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Detect PERSON names in a PDF and highlight them"
+    )
+    parser.add_argument("input", help="input PDF file (e.g. book.pdf)")
+    parser.add_argument("output", help="output PDF file (e.g. highlighted.pdf)")
+    args = parser.parse_args()
+    highlight_names_in_pdf(args.input, args.output)

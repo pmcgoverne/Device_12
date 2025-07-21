@@ -1,0 +1,14 @@
+
+.markdown-source-view.mod-cm6 .internal-embed > img,
+.markdown-preview-view .internal-embed > img {
+    -webkit-box-shadow:0px 0px 39px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow: 0px 0px 39px 10px rgba(0,0,0,0.22);
+    box-shadow: 0px 0px 39px 10px rgba(0,0,0,0.22);
+    border-radius: 15px;
+}
+.markdown-source-view.mod-cm6 .internal-embed > img,
+.markdown-preview-view .internal-embed > img {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
