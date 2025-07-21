@@ -95,48 +95,40 @@ if [ -d "$ZOTERO_SUPPORT_PATH" ]; then
             echo -e "${red}❌ No 'extensions/' folder found in Zotero template directory. Skipping plugin copy.${reset}"
         fi
 
-        # --- Patch prefs.js ---
-        PREFS_FILE="$PROFILE_DIR/prefs.js"
-        if [ -f "$PREFS_FILE" ]; then
-            echo -e "${yellow}📝 Updating prefs.js safely...${reset}"
+        # --- Write to user.js instead of prefs.js ---
+        USER_JS_FILE="$PROFILE_DIR/user.js"
+        echo -e "${yellow}📝 Writing preferences to user.js (persistent)...${reset}"
+        echo "// Preferences injected by Academic Toolkit Installer" >> "$USER_JS_FILE"
 
-            PREF_ENTRIES=(
-                'extensions.ui.dictionary.hidden=true'
-                'extensions.ui.extension.hidden=false'
-                'extensions.ui.locale.hidden=true'
-                'extensions.webextensions.uuids="{\"better-bibtex@iris-advies.com\":\"080aa77d-f3cc-4fc4-8313-e844d9e587b8\",\"zoteroAddons@ytshen.com\":\"0ca0d2ca-f67e-4f27-8103-e1923f5fcf40\",\"zoterostyle@polygon.org\":\"1501bc36-a038-44d2-b897-c86612447157\",\"zotmoov@wileyy.com\":\"cfd1a221-24a7-41a0-9a6d-dc306806c3db\"}"'
-                'extensions.zotero.Zotero.AddonItem.key="8NL6WMFP"'
-                'extensions.zotero.attachmentRenameTemplate="@{{ if {{ authorsCount > 2 }} }}\n{{ authors max=\"1\" suffix=\" et al\" }}\n{{ else }}\n{{ authors join=\"_\" }}\n{{ endif }}\n_{{ year }}"'
-                'extensions.zotero.downloadAssociatedFiles=false'
-                'extensions.zotero.httpServer.localAPI.enabled=true'
-                'extensions.zotero.lastSelectedPrefPane="zotero-prefpane-general"'
-                'extensions.zotero.sourceList.persist="{\"L1\":true,\"P1\":false}"'
-                'extensions.zotero.translators.better-bibtex.citekeyFormat="authEtal2(sep = \\"_\\").lower + \\"_\\" + year"'
-                'extensions.zotero.translators.better-bibtex.citekeyFormatEditing="authEtal2(sep=\\"_\\").lower + \\"_\\" + year"'
-                'extensions.zotero.translators.better-bibtex.path.git="/opt/homebrew/bin/git"'
-                'extensions.zotero.translators.better-bibtex.path.texstudio=""'
-                'extensions.zotero.translators.better-bibtex.platform="mac"'
-                'extensions.zotero.zoteroaddons.firstInstalledVersion="2.1.1"'
-                'extensions.zotero.zoteroaddons.guideStatus=1'
-                'extensions.zotero.zoterostyle.annotationColors="[[\\"green\\",\\"#5fb236\\"],[\\"yellow\\",\\"#ffd400\\"],[\\"red\\",\\"#ff6666\\"],[\\"🧠_Term\\",\\"#f19837\\"],[\\"👤_Person\\",\\"#a28ae5\\"],[\\"📄_Document\\",\\"#2ea8e5\\"],[\\"🎟️_Event\\",\\"#e56eee\\"],[\\"🗃️_Group\\",\\"#3f51b5\\"],[\\"#_Part\\",\\"#000000\\"],[\\"#_Chapter\\",\\"#404040\\"],[\\"#_Index\\",\\"#aaaaaa\\"]]"'
-                'extensions.zotero.zoterostyle.annotationColorsGroups="[[\\"Obsidian Markup\\",[[\\"green\\",\\"#5fb236\\"],[\\"yellow\\",\\"#ffd400\\"],[\\"red\\",\\"#ff6666\\"],[\\"🧠_Term\\",\\"#f19837\\"],[\\"👤_Person\\",\\"#a28ae5\\"],[\\"📄_Document\\",\\"#2ea8e5\\"],[\\"🎟️_Event\\",\\"#e56eee\\"],[\\"🗃️_Group\\",\\"#3f51b5\\"],[\\"#_Part\\",\\"#000000\\"],[\\"#_Chapter\\",\\"#404040\\"],[\\"#_Index\\",\\"#aaaaaa\\"]]]]"'
-                'extensions.zotmoov.file_behavior="copy"'
-            )
+        PREF_ENTRIES=(
+            'extensions.ui.dictionary.hidden=true'
+            'extensions.ui.extension.hidden=false'
+            'extensions.ui.locale.hidden=true'
+            'extensions.webextensions.uuids="{\"better-bibtex@iris-advies.com\":\"080aa77d-f3cc-4fc4-8313-e844d9e587b8\",\"zoteroAddons@ytshen.com\":\"0ca0d2ca-f67e-4f27-8103-e1923f5fcf40\",\"zoterostyle@polygon.org\":\"1501bc36-a038-44d2-b897-c86612447157\",\"zotmoov@wileyy.com\":\"cfd1a221-24a7-41a0-9a6d-dc306806c3db\"}"'
+            'extensions.zotero.Zotero.AddonItem.key="8NL6WMFP"'
+            'extensions.zotero.attachmentRenameTemplate="@{{ if {{ authorsCount > 2 }} }}\n{{ authors max=\"1\" suffix=\" et al\" }}\n{{ else }}\n{{ authors join=\"_\" }}\n{{ endif }}\n_{{ year }}"'
+            'extensions.zotero.downloadAssociatedFiles=false'
+            'extensions.zotero.httpServer.localAPI.enabled=true'
+            'extensions.zotero.lastSelectedPrefPane="zotero-prefpane-general"'
+            'extensions.zotero.sourceList.persist="{\"L1\":true,\"P1\":false}"'
+            'extensions.zotero.translators.better-bibtex.citekeyFormat="authEtal2(sep = \"_\").lower + \"_\" + year"'
+            'extensions.zotero.translators.better-bibtex.citekeyFormatEditing="authEtal2(sep=\"_\").lower + \"_\" + year"'
+            'extensions.zotero.translators.better-bibtex.path.git="/opt/homebrew/bin/git"'
+            'extensions.zotero.translators.better-bibtex.path.texstudio=""'
+            'extensions.zotero.translators.better-bibtex.platform="mac"'
+            'extensions.zotero.zoteroaddons.firstInstalledVersion="2.1.1"'
+            'extensions.zotero.zoteroaddons.guideStatus=1'
+            'extensions.zotero.zoterostyle.annotationColors="[[\"green\",\"#5fb236\"],[\"yellow\",\"#ffd400\"],[\"red\",\"#ff6666\"],[\"🧠_Term\",\"#f19837\"],[\"👤_Person\",\"#a28ae5\"],[\"📄_Document\",\"#2ea8e5\"],[\"🎟️_Event\",\"#e56eee\"],[\"🗃️_Group\",\"#3f51b5\"],[\"#_Part\",\"#000000\"],[\"#_Chapter\",\"#404040\"],[\"#_Index\",\"#aaaaaa\"]]"'
+            'extensions.zotero.zoterostyle.annotationColorsGroups="[[\"Obsidian Markup\",[[\"green\",\"#5fb236\"],[\"yellow\",\"#ffd400\"],[\"red\",\"#ff6666\"],[\"🧠_Term\",\"#f19837\"],[\"👤_Person\",\"#a28ae5\"],[\"📄_Document\",\"#2ea8e5\"],[\"🎟️_Event\",\"#e56eee\"],[\"🗃️_Group\",\"#3f51b5\"],[\"#_Part\",\"#000000\"],[\"#_Chapter\",\"#404040\"],[\"#_Index\",\"#aaaaaa\"]]]]"'
+            'extensions.zotmoov.file_behavior="copy"'
+        )
 
-            for entry in "${PREF_ENTRIES[@]}"; do
-                key="${entry%%=*}"
-                value="${entry#*=}"
-
-                if grep -q "user_pref(\"$key\"" "$PREFS_FILE"; then
-                    echo -e "${yellow}⚠️ Pref already exists: $key (skipped)${reset}"
-                else
-                    echo "user_pref(\"$key\", $value);" >> "$PREFS_FILE"
-                    echo -e "${green}✅ Added pref: $key = $value${reset}"
-                fi
-            done
-        else
-            echo -e "${red}❌ prefs.js not found. Cannot update plugin settings.${reset}"
-        fi
+        for entry in "${PREF_ENTRIES[@]}"; do
+            key="${entry%%=*}"
+            value="${entry#*=}"
+            echo "user_pref(\"$key\", $value);" >> "$USER_JS_FILE"
+            echo -e "${green}✅ Queued pref: $key = $value${reset}"
+        done
     fi
 elif [ -d "$TEMPLATE_ZOTERO_PATH" ]; then
     echo -e "${yellow}📁 No Zotero config found. Copying full template...${reset}"
