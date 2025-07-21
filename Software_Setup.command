@@ -10,6 +10,11 @@ yellow="\033[1;33m"
 red="\033[0;31m"
 reset="\033[0m"
 
+# --- Ensure Zotero is not running ---
+echo -e "\n${yellow}🛑 Closing Zotero if running...${reset}"
+osascript -e 'tell application "Zotero" to quit'
+sleep 3  # give it a moment to close
+
 # --- PATH SETUP ---
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ZOTERO_SUPPORT_PATH="$HOME/Library/Application Support/Zotero"
@@ -20,6 +25,7 @@ EXTENSIONS_DIR="$(find "$TEMPLATE_ZOTERO_PATH/Profiles" -type d -depth 1 | head 
 VAULT_NAME="Template"
 SOURCE_VAULT="$SCRIPT_DIR/Template"
 DEST_VAULT="$HOME/Documents/Obsidian Vaults/$VAULT_NAME"
+
 
 # --- 1. Homebrew ---
 if ! command -v brew &> /dev/null; then
