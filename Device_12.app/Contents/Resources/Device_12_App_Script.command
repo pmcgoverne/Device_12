@@ -23,9 +23,15 @@ else
 fi
 
 # --- Close Zotero if running ---
-log "🛑 Closing Zotero (if running)..."
-osascript -e 'tell application "Zotero" to quit'
-sleep 3
+log "🛑 Checking if Zotero is running..."
+if pgrep -x "Zotero" > /dev/null; then
+  log "🔻 Zotero is running. Attempting to quit..."
+  osascript -e 'tell application "Zotero" to quit'
+  sleep 3
+  log "✅ Zotero closed."
+else
+  log "✅ Zotero is not running. No action needed."
+fi
 
 # Set variables
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -69,6 +75,25 @@ SOURCE_VAULT="$SCRIPT_DIR/Template"
     log "✅ Pandoc already installed."
   fi
 } || log "⚠️ Pandoc step encountered an error."
+
+# --- Install MacTeX (for lualatex support) ---
+{
+  if command -v lualatex &> /dev/null; then
+    log "✅ LuaLaTeX already available."
+  elif [ -d "/Library/TeX" ]; then
+    log "✅ MacTeX already installed at /Library/TeX."
+  else
+    log "📦 Installing MacTeX (includes LuaLaTeX)..."
+    brew install --cask mactex || log "⚠️ brew failed to install MacTeX"
+
+    # Update PATH for TeX binaries if not already present
+    if [ -x "/Library/TeX/texbin/lualatex" ]; then
+      log "✅ MacTeX installed successfully. LuaLaTeX available."
+    else
+      log "❌ MacTeX installation failed or lualatex not found."
+    fi
+  fi
+} || log "⚠️ MacTeX/LuaLaTeX installation encountered an error."
 
 # --- Install Zotero ---
 {

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Show a Terminal window (optional, depending on use case)
+open -a Terminal "`dirname "$0"`/../Resources/Device_12_App_Script.command"
