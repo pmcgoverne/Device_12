@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Assets/home.md",
+                "file": "00 - Assets/Templates/Template, Quote insert.md",
                 "mode": "source",
                 "source": true,
                 "backlinks": true,
@@ -28,11 +28,41 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "home"
+              "title": "Template, Quote insert"
             }
           }
         ],
         "stacked": true
+      },
+      {
+        "id": "102419e28a9537cc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bb3b5a668b32d066",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "01 - Notes/Untitled.md",
+                "mode": "source",
+                "source": true,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -253,26 +283,29 @@
       "command-palette:Open command palette": false,
       "templates:Insert template": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "obsidian-book-search-plugin:Create new book note": false,
       "callout-manager:Insert Callout": false,
-      "obsidian-excalidraw-plugin:New drawing": false,
       "obsidian-importer:Open Importer": false,
-      "obsidian-kanban:Create new board": false,
       "obsidian-extract-pdf-highlights:PDF Highlights": false,
       "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
       "pdf-plus:PDF++: Toggle auto-paste": false,
       "print:Print note": false,
-      "obsidian-projects:Open projects": false,
       "templater-obsidian:Templater": false,
-      "super-duper-audio-recorder:Start/Stop Recording": false,
       "obsidian-shellcommands:Shell commands: Custom variables": false,
       "homepage:Open homepage": false
     }
   },
   "active": "1991a46f08d32827",
   "lastOpenFiles": [
+    "00 - Assets/Templates/Template, People insert.md",
+    "00 - Assets/Templates/Template, Document insert.md",
+    "00 - Assets/Templates/Template, Event insert.md",
+    "00 - Assets/Templates/Template, Group insert.md",
+    "00 - Assets/Templates/Template, Idea insert.md",
+    "00 - Assets/Templates/Template, Quote insert.md",
+    "00 - Assets/Templates/Template, Master-Insert.md",
     "00 - Assets/home.md",
+    "01 - Notes/Untitled.md",
     "02 - Drafts/Manuscripts/dfasdfa.md",
     "00 - Assets/Scripts/wikicite.lua",
     "00 - Assets/wikicite.lua",
@@ -300,14 +333,6 @@
     "00 - Assets/Templates/Template, Alloy.md",
     "00 - Assets/Templates/Template, Atom.md",
     "00 - Assets/Templates/Snippet, Blank.md",
-    "00 - Assets/Templates/Template, Document insert.md",
-    "00 - Assets/Templates/Template, Event insert.md",
-    "00 - Assets/Templates/Template, Group insert.md",
-    "00 - Assets/Templates/Template, Idea insert.md",
-    "00 - Assets/Templates/Template, People insert.md",
-    "00 - Assets/Templates/Template, Quote insert.md",
-    "00 - Assets/Templates/Template, Master-Insert.md",
-    "99 - Files/Obsidian .mds/Untitled.md",
     "Screenshot 2025-05-19 at 2.07.00 PM.png",
     "Screenshot 2025-05-19 at 2.06.46 PM.png",
     "99 - Archive/Spring'25/04 - Stats (SOC 362)/Final Exam cheatsheet copy.png",

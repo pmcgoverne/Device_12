@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # =============================
-# Academic Toolkit Installer (Platypus-Compatible)
+# Academic Toolkit Installer
 # Fixed for permission errors and improved logging
 # =============================
 
-echo "📦 Starting Academic Toolkit Installation..."
+echo "📦 Device_12 Installation..."
 timestamp=$(date +%Y-%m-%d_%H:%M:%S)
 log_file="install_$timestamp.log"
 
@@ -66,7 +66,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 TEMPLATE_ZOTERO_PATH="$SCRIPT_DIR/Zotero"
 EXTENSIONS_DIR="$TEMPLATE_ZOTERO_PATH/Profiles/8g56zk9v.user/extensions"
 VAULT_NAME="Vault_12"
-SOURCE_VAULT="$SCRIPT_DIR/Template"
+SOURCE_VAULT="$SCRIPT_DIR/Vault_12"
 
 add_brew_to_path
 

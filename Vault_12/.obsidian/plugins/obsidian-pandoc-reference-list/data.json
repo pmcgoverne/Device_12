@@ -5,7 +5,7 @@
     {
       "id": 1,
       "name": "My Library",
-      "lastUpdate": 1752872952527
+      "lastUpdate": 1754430085033
     }
   ],
   "renderCitations": true,
@@ -15,5 +15,6 @@
   "pullFromZotero": true,
   "enableCiteKeyCompletion": true,
   "showCitekeyTooltips": true,
-  "zoteroPort": "23124"
+  "zoteroPort": "23119",
+  "pathToBibliography": "'/Users/test/Library/Mobile Documents/iCloud~md~obsidian/Documents/Primary/00 - Assets/Sources/My Library.bib'"
 }

@@ -8,7 +8,7 @@
   "exportFormats": [
     {
       "name": "Journal",
-      "outputPathTemplate": "{{citekey}}.md",
+      "outputPathTemplate": "01 - Notes/{{citekey}}.md",
       "imageOutputPathTemplate": "00 - Assets/Images",
       "imageBaseNameTemplate": "{{citekey}}/",
       "templatePath": "00 - Assets/Templates/Template, Zotero.md"
@@ -18,5 +18,5 @@
   "openNoteAfterImport": false,
   "whichNotesToOpenAfterImport": "first-imported-note",
   "exeOverridePath": "",
-  "port": "23124"
+  "port": "23119"
 }
