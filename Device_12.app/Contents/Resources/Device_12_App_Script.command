@@ -14,6 +14,34 @@ log() {
   echo "[$(date +%Y-%m-%d_%H:%M:%S)] $1"
 }
 
+add_brew_to_path() {
+  # Make PATH persistent for the *real* user (not root) and activate for this run
+  local target_user="${SUDO_USER:-$USER}"
+  local target_home
+  target_home="$(dscl . -read "/Users/$target_user" NFSHomeDirectory 2>/dev/null | awk '{print $2}')"
+  [ -z "$target_home" ] && target_home="$HOME"
+
+  local line_si='if [ -x /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; fi'
+  local line_intel='if [ -x /usr/local/bin/brew ]; then eval "$(/usr/local/bin/brew shellenv)"; fi'
+
+  for rc in "$target_home/.zprofile" "$target_home/.zshrc"; do
+    touch "$rc"
+    grep -Fqx "$line_si" "$rc"   || printf "\n%s\n" "$line_si"   >> "$rc"
+    grep -Fqx "$line_intel" "$rc" || printf "%s\n"  "$line_intel" >> "$rc"
+    [ -n "${SUDO_USER:-}" ] && chown "$target_user":"$(id -gn "$target_user")" "$rc"
+  done
+
+  if [ -x /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    log "🔄 Homebrew PATH activated (Apple Silicon)."
+  elif [ -x /usr/local/bin/brew ]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+    log "🔄 Homebrew PATH activated (Intel)."
+  else
+    log "ℹ️ Brew not found yet; PATH lines were added for future shells."
+  fi
+}
+
 # Check if we have write access to the current directory
 if [[ ! -w . ]]; then
   log "⚠️ Warning: Current directory is read-only. Logging may be limited."
@@ -40,14 +68,7 @@ EXTENSIONS_DIR="$TEMPLATE_ZOTERO_PATH/Profiles/8g56zk9v.user/extensions"
 VAULT_NAME="Vault_12"
 SOURCE_VAULT="$SCRIPT_DIR/Template"
 
-add_brew_to_path() {
-  if [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
-    export PATH="/opt/homebrew/bin:$PATH"
-    log "🔄 Added Homebrew to PATH."
-  else
-    log "✅ Homebrew already in PATH."
-  fi
-}
+add_brew_to_path
 
 # --- Install Homebrew if missing ---
 {
@@ -55,34 +76,32 @@ add_brew_to_path() {
     log "🔄 Homebrew not found. Installing via official script..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    add_brew_to_path() {
-      if [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
-        export PATH="/opt/homebrew/bin:$PATH"
-        log "🔄 Added Homebrew to PATH."
-      else
-        log "✅ Homebrew already in PATH."
-      fi
-    }
-
     if command -v brew &> /dev/null; then
       log "✅ Homebrew installed successfully."
+      add_brew_to_path   # <-- make brew available immediately and persist for user shells
     else
       log "❌ Homebrew installation failed. Continuing without it."
     fi
   else
     log "✅ Homebrew already installed."
+    add_brew_to_path     # ensure shellenv in this run (useful when PATH wasn’t set)
   fi
 } || log "⚠️ Homebrew step encountered an error."
 
+
 # --- Install Pandoc ---
 {
-  sudo chown -R $(whoami) /usr/local/share/zsh /usr/local/share/zsh/site-functions 
-  chmod u+w /usr/local/share/zsh /usr/local/share/zsh/site-functions
+  # Only touch zsh dirs if they exist (and avoid errors on arm64 systems)
+  [ -d /usr/local/share/zsh ] && sudo chown -R "$(whoami)" /usr/local/share/zsh
+  [ -d /usr/local/share/zsh/site-functions ] && chmod u+w /usr/local/share/zsh/site-functions
 
   if ! command -v pandoc &> /dev/null; then
-    log "📦 Checking Pandoc..."
-    log "📥 Installing Pandoc..."
-    brew install pandoc || log "⚠️ brew failed to install Pandoc"
+    if command -v brew &> /dev/null; then
+      log "📥 Installing Pandoc..."
+      brew install pandoc || log "⚠️ brew failed to install Pandoc"
+    else
+      log "❌ Homebrew unavailable; skipping Pandoc install."
+    fi
 
     if command -v pandoc &> /dev/null; then
       log "✅ Pandoc installed successfully."
