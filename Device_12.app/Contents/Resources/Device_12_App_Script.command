@@ -40,11 +40,29 @@ EXTENSIONS_DIR="$TEMPLATE_ZOTERO_PATH/Profiles/8g56zk9v.user/extensions"
 VAULT_NAME="Vault_12"
 SOURCE_VAULT="$SCRIPT_DIR/Template"
 
+add_brew_to_path() {
+  if [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+    log "🔄 Added Homebrew to PATH."
+  else
+    log "✅ Homebrew already in PATH."
+  fi
+}
+
 # --- Install Homebrew if missing ---
 {
   if ! command -v brew &> /dev/null; then
     log "🔄 Homebrew not found. Installing via official script..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    add_brew_to_path() {
+      if [[ ":$PATH:" != *":/opt/homebrew/bin:"* ]]; then
+        export PATH="/opt/homebrew/bin:$PATH"
+        log "🔄 Added Homebrew to PATH."
+      else
+        log "✅ Homebrew already in PATH."
+      fi
+    }
 
     if command -v brew &> /dev/null; then
       log "✅ Homebrew installed successfully."
