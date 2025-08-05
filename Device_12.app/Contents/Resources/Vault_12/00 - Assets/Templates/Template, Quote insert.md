@@ -1,5 +1,5 @@
 <%*
-const folderPath = "01 - Notes/Source Notes"; // Change if needed
+const folderPath = "01 - Notes"; // Change if needed
 let files = app.vault.getMarkdownFiles().filter(f => f.path.startsWith(folderPath + "/"));
 files = files.sort((a, b) => a.basename.localeCompare(b.basename));
 

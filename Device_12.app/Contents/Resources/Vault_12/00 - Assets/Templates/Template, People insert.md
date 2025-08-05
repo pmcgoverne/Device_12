@@ -1,6 +1,6 @@
 <%*  
 // 1. Pick a literature note as before  
-const folderPath = "01 - Notes/Source Notes";  
+const folderPath = "01 - Notes";  
 let files = app.vault.getMarkdownFiles()  
   .filter(f => f.path.startsWith(folderPath + "/"))  
   .sort((a,b) => a.basename.localeCompare(b.basename));  

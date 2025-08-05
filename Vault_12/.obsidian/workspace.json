@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Assets/Templates/Template, Quote insert.md",
+                "file": "00 - Assets/home.md",
                 "mode": "source",
                 "source": true,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Template, Quote insert"
+              "title": "home"
             }
           }
         ],
@@ -42,24 +42,10 @@
             "id": "bb3b5a668b32d066",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "01 - Notes/Untitled.md",
-                "mode": "source",
-                "source": true,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "New tab"
             }
           }
         ]
@@ -297,12 +283,12 @@
   },
   "active": "1991a46f08d32827",
   "lastOpenFiles": [
+    "00 - Assets/Templates/Template, Quote insert.md",
     "00 - Assets/Templates/Template, People insert.md",
     "00 - Assets/Templates/Template, Document insert.md",
     "00 - Assets/Templates/Template, Event insert.md",
     "00 - Assets/Templates/Template, Group insert.md",
     "00 - Assets/Templates/Template, Idea insert.md",
-    "00 - Assets/Templates/Template, Quote insert.md",
     "00 - Assets/Templates/Template, Master-Insert.md",
     "00 - Assets/home.md",
     "01 - Notes/Untitled.md",
