@@ -33,22 +33,6 @@
           }
         ],
         "stacked": true
-      },
-      {
-        "id": "102419e28a9537cc",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "bb3b5a668b32d066",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -281,7 +265,7 @@
       "homepage:Open homepage": false
     }
   },
-  "active": "1991a46f08d32827",
+  "active": "eadd43cb8dac3645",
   "lastOpenFiles": [
     "00 - Assets/Templates/Template, Quote insert.md",
     "00 - Assets/Templates/Template, People insert.md",
