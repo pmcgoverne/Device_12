@@ -80,7 +80,8 @@ add_brew_to_path
       log "✅ Homebrew installed successfully."
       add_brew_to_path   # <-- make brew available immediately and persist for user shells
     else
-      log "❌ Homebrew installation failed. Continuing without it."
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+      log "✅ Homebrew installed successfully. x2 method."
     fi
   else
     log "✅ Homebrew already installed."
