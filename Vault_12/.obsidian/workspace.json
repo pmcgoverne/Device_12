@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "00 - Assets/home.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true,
                 "backlinks": true,
                 "backlinkOpts": {
@@ -30,8 +30,21 @@
               "icon": "lucide-file",
               "title": "home"
             }
+          },
+          {
+            "id": "9947eea5f66a0fe4",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.9.10"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.9.10"
+            }
           }
         ],
+        "currentTab": 1,
         "stacked": true
       }
     ],
@@ -245,6 +258,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "audio-recorder:Start/stop recording": false,
       "graph:Open graph view": false,
       "switcher:Open quick switcher": false,
@@ -265,8 +279,11 @@
       "homepage:Open homepage": false
     }
   },
-  "active": "eadd43cb8dac3645",
+  "active": "9947eea5f66a0fe4",
   "lastOpenFiles": [
+    "Untitled 1.md",
+    "00 - Assets/home.md",
+    "Untitled.md",
     "00 - Assets/Templates/Template, Quote insert.md",
     "00 - Assets/Templates/Template, People insert.md",
     "00 - Assets/Templates/Template, Document insert.md",
@@ -274,7 +291,6 @@
     "00 - Assets/Templates/Template, Group insert.md",
     "00 - Assets/Templates/Template, Idea insert.md",
     "00 - Assets/Templates/Template, Master-Insert.md",
-    "00 - Assets/home.md",
     "01 - Notes/Untitled.md",
     "02 - Drafts/Manuscripts/dfasdfa.md",
     "00 - Assets/Scripts/wikicite.lua",
@@ -301,8 +317,6 @@
     "99 - Files/Obsidian .mds/Pandoc shit.md",
     "00 - Assets/Templates/Snippet, Attendees.md",
     "00 - Assets/Templates/Template, Alloy.md",
-    "00 - Assets/Templates/Template, Atom.md",
-    "00 - Assets/Templates/Snippet, Blank.md",
     "Screenshot 2025-05-19 at 2.07.00 PM.png",
     "Screenshot 2025-05-19 at 2.06.46 PM.png",
     "99 - Archive/Spring'25/04 - Stats (SOC 362)/Final Exam cheatsheet copy.png",
